@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/tile.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Tile.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Area2D.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Tile" type="Sprite"]
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+[connection signal="player_moving" from="Area2D" to="." method="_on_player_moving"]
