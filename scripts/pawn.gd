@@ -47,11 +47,7 @@ func _on_Hitbox_mouse_exited():
 	mouse_entered = false
 
 func _on_player_entered(area):
-	if not usable and area.get_collision_layer() == 2:
-		print(area.name)
-		print("dead!")
-		queue_free()
-		area.queue_free()
+	pass
 
 
 func _on_MovementBox_mouse_entered():

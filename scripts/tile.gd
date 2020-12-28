@@ -15,14 +15,15 @@ func _on_player_moving():
 
 func _on_player_not_moving():
 	self.modulate = Color(1, 1, 1)
-	print("whitened")
 
 func _on_player_moved(mov_piece):
 	if not occupied:
 		mov_piece.position = position
 		return false
 	elif not piece.usable:
-		print("kill")
+		piece.queue_free()
+		piece = null
+		mov_piece.position = position
 		return false
 	print("returning error")
 	return true
