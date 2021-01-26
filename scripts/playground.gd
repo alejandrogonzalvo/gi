@@ -31,6 +31,7 @@ func _invoke_pawn(position: Vector2, player_group: String):
 	p.add_to_group(player_group)
 	p.add_to_group("pieces")
 	p.connect("player_moved", self, "_on_player_moved")
+	p.connect("piece_evolved", self, "_on_piece_evolved")
 	add_child(p)
 
 
@@ -41,3 +42,11 @@ func _on_player_moved():
 			piece.usable = false
 		else:
 			piece.usable = true
+
+func _on_piece_evolved(piece):
+	var piece_type = piece.get_class()
+	
+	match piece_type:
+		"Pawn":
+			piece.queue_free()
+			

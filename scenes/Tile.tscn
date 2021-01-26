@@ -21,6 +21,3 @@ shape = SubResource( 1 )
 [connection signal="area_exited" from="HitBox" to="." method="_on_piece_area_exited"]
 [connection signal="mouse_entered" from="HitBox" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="HitBox" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="player_moved" from="HitBox" to="." method="_on_player_moved"]
-[connection signal="player_moving" from="HitBox" to="." method="_on_player_moving"]
-[connection signal="player_not_moving" from="HitBox" to="." method="_on_player_not_moving"]

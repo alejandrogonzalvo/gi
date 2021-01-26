@@ -3,26 +3,28 @@ class_name Tile
 
 var occupied:bool = false
 var movable:bool = true
+var mouse_entered:bool = false
 var piece
+
 
 func get_class(): return "Tile"
 
-func _on_player_moving():
+func piece_moving(mov_piece):
 	if occupied and not piece.usable:
-		self.modulate = Color(1, 0.5, 0.5)
+		modulate = Color(1, 0.5, 0.5)
 	elif not occupied:
-		self.modulate = Color(0.5, 0.5, 1)
+		modulate = Color(0.5, 0.5, 1)
 
-func _on_player_not_moving():
+func piece_not_moving():
 	self.modulate = Color(1, 1, 1)
 
-func _on_player_moved(mov_piece):
+func piece_moved(mov_piece):
 	if not occupied:
 		mov_piece.position = position
 		return false
 	elif not piece.usable:
 		piece.queue_free()
-		piece = null
+		piece = mov_piece
 		mov_piece.position = position
 		return false
 	print("returning error")
@@ -40,8 +42,8 @@ func _on_piece_area_exited(area):
 
 
 func _on_Area2D_mouse_entered():
-	$HitBox.mouse_entered = true
+	mouse_entered = true
 
 
 func _on_Area2D_mouse_exited():
-	$HitBox.mouse_entered = false
+	mouse_entered = false

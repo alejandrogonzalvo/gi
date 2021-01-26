@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Sprite",
+"class": "Pawn",
+"language": "GDScript",
+"path": "res://scripts/pawn.gd"
+}, {
+"base": "Sprite",
 "class": "Tile",
 "language": "GDScript",
 "path": "res://scripts/tile.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/tile_hitbox.gd"
 } ]
 _global_script_class_icons={
+"Pawn": "",
 "Tile": "",
 "TileHitbox": ""
 }
@@ -35,9 +41,14 @@ Global="*res://scripts/global.gd"
 
 [input]
 
-click={
+left_click={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+right_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 
